@@ -1,6 +1,8 @@
+import Navbar from './components/Navbar';
+
 function App() {
   return (
-    <h1>Welcome to Pyckup...!!!</h1>
+    <Navbar />
   );
 }
 
