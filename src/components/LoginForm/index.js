@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import RegistrationCard from '../RegistrationCard';
 import Textbox from '../Textbox';
 import SubmitButton from '../SubmitButton';
@@ -5,6 +6,17 @@ import SubmitButton from '../SubmitButton';
 import './index.scss';
 
 function LoginForm({ toggleLoginForm }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    console.log('Form has been submitted successfully.');
+  }
+
   return (
     <RegistrationCard>
       <h3>Welcome back</h3>
@@ -12,12 +24,12 @@ function LoginForm({ toggleLoginForm }) {
       <form className='registrationForm'>
         <Textbox
           fieldName='email'
-          value=''
+          value={email}
           label='Email Address'
-          error=''
+          error={errors.email}
           type='text'
           id='emailAddress'
-          onChange={() => 'abc'}
+          onChange={e => setEmail(e.target.value)}
           autoComplete='off'
           autoFocus={true}
           placeHolder='Your email address'
@@ -25,20 +37,20 @@ function LoginForm({ toggleLoginForm }) {
 
         <Textbox
           fieldName='password'
-          value=''
+          value={password}
           label='Password'
-          error=''
+          error={errors.password}
           type='password'
           id='password'
-          onChange={() => 'abc'}
+          onChange={e => setPassword(e.target.value)}
           autoComplete='off'
           placeHolder='Your password'
         />
 
         <SubmitButton
-          value='Login'
-          disabled={false}
-          handleClick={() => 'abc'}
+          buttonText='Login'
+          disabled={isLoading}
+          handleClick={onSubmit}
         />
       </form>
 

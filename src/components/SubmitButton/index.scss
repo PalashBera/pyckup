@@ -18,4 +18,9 @@
   &:focus {
     outline: 0;
   }
+
+  &:disabled {
+    background-color: #565384;
+    border-color: #565384;
+  }
 }
