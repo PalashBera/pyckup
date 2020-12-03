@@ -4,8 +4,6 @@ import Textbox from '../Textbox';
 import SubmitButton from '../SubmitButton';
 import loginFormValidator from '../../validators/loginFormValidator';
 
-import './index.scss';
-
 function LoginForm({ toggleLoginForm }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,7 +36,7 @@ function LoginForm({ toggleLoginForm }) {
           value={email}
           label='Email Address'
           error={errors.email}
-          type='text'
+          type='email'
           id='emailAddress'
           onChange={e => setEmail(e.target.value)}
           autoComplete='off'
