@@ -1,0 +1,33 @@
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 35px;
+  position: relative;
+
+  label {
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+    font-size: 12px;
+    user-select: none;
+  }
+
+  .formControl {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    transition: all 0.5s ease;
+
+    &:hover, &:focus {
+      border-color: #333153;
+      outline: 0;
+    }
+  }
+
+  .errorText {
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+  }
+}
