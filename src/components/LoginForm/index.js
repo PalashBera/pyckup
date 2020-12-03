@@ -2,6 +2,7 @@ import { useState } from 'react';
 import RegistrationCard from '../RegistrationCard';
 import Textbox from '../Textbox';
 import SubmitButton from '../SubmitButton';
+import loginFormValidator from '../../validators/loginFormValidator';
 
 import './index.scss';
 
@@ -11,10 +12,20 @@ function LoginForm({ toggleLoginForm }) {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
+  const isValid = () => {
+    const { errors, isValid } = loginFormValidator({ email, password });
+    if (!isValid) setErrors(errors);
+    return isValid;
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    console.log('Form has been submitted successfully.');
+
+    if (isValid()) {
+      setErrors({});
+      setIsLoading(true);
+      console.log('Form has been submitted successfully.');
+    }
   }
 
   return (

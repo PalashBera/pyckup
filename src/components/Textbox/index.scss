@@ -25,9 +25,16 @@
     }
   }
 
+  &.hasError {
+    .formControl {
+      border-color: #cf2727;
+    }
+  }
+
   .errorText {
     position: absolute;
     bottom: -22px;
     left: 0;
+    color: #cf2727;
   }
 }
