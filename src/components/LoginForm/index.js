@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import RegistrationCard from '../RegistrationCard';
 import Textbox from '../Textbox';
 import SubmitButton from '../SubmitButton';
 import loginFormValidator from '../../validators/loginFormValidator';
+import { requestLogin } from '../../actions/loginAction';
 
 function LoginForm({ toggleLoginForm }) {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const loginErrors = useSelector(store => store.loginReducer.errors);
 
   const isValid = () => {
     const { errors, isValid } = loginFormValidator({ email, password });
@@ -22,7 +26,7 @@ function LoginForm({ toggleLoginForm }) {
     if (isValid()) {
       setErrors({});
       setIsLoading(true);
-      console.log('Form has been submitted successfully.');
+      dispatch(requestLogin({ email, password }));
     }
   }
 
