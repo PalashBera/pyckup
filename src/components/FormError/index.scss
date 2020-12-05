@@ -1,0 +1,16 @@
+.errroContainer {
+  padding: 15px;
+  border-left: 4px solid rgba(256, 0, 0, 0.5);
+  background-color: rgba(256, 0, 0, 0.3);
+  text-align: left;
+  border-radius: 4px;
+  margin-bottom: 35px;
+
+  .errorMessage {
+    margin-bottom: 10px;
+  }
+
+  .noMargin {
+    margin-bottom: 0;
+  }
+}

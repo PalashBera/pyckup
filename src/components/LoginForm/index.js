@@ -5,6 +5,7 @@ import Textbox from '../Textbox';
 import SubmitButton from '../SubmitButton';
 import loginFormValidator from '../../validators/loginFormValidator';
 import { requestLogin } from '../../actions/loginAction';
+import FormError from '../FormError';
 
 function LoginForm({ toggleLoginForm }) {
   const dispatch = useDispatch();
@@ -35,6 +36,8 @@ function LoginForm({ toggleLoginForm }) {
       <h3>Welcome back</h3>
 
       <form className='registrationForm'>
+        <FormError errors={loginErrors} />
+
         <Textbox
           fieldName='email'
           value={email}
