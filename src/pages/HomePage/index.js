@@ -1,6 +1,11 @@
+import Navbar from '../../components/Navbar';
+
 function HomePage() {
   return (
-    <h1>This is Home Page..!!</h1>
+    <>
+      <Navbar />
+      <h1>This is Home Page..!!</h1>
+    </>
   )
 }
 

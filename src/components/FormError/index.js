@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import './index.scss';
+import './formError.scss';
 
 function FormError({ errors }) {
   const errorList = errors.map((error, index) => {

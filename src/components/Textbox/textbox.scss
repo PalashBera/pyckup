@@ -1,20 +1,19 @@
 .formGroup {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 35px;
+  flex: 1 0 auto;
+  margin-bottom: 30px;
   position: relative;
 
   label {
-    text-transform: uppercase;
-    margin-bottom: 0.2rem;
-    font-size: 12px;
+    margin-bottom: 6px;
+    font-size: 14px;
     user-select: none;
+    font-weight: 600;
   }
 
   .formControl {
-    width: 100%;
-    padding: 12px 18px;
+    padding: 15px 20px;
     border: 1px solid #d1d1d1;
     border-radius: 4px;
     transition: all 0.5s ease;
@@ -27,14 +26,14 @@
 
   &.hasError {
     .formControl {
-      border-color: #cf2727;
+      border-color: #f64e60;
     }
   }
 
   .errorText {
     position: absolute;
-    bottom: -22px;
+    bottom: -24px;
     left: 0;
-    color: #cf2727;
+    color: #f64e60;
   }
 }

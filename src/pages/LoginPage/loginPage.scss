@@ -1,0 +1,150 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+
+  .asideSection {
+    display: flex;
+    flex-direction: column;
+    background-color: #F2C98A;
+    padding-top: 45px;
+    text-align: center;
+
+    .header {
+      margin-bottom: 50px;
+
+      a {
+        display: inline-block;
+        margin-bottom: 30px;
+      }
+
+      h3 {
+        color: #986923;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+    }
+
+    .asideImage {
+      min-height: 200px;
+      background-image: url(../../images/inventory.svg);
+      background-size: 280px;
+      background-position-x: center;
+      background-position-y: bottom;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .formSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 21px;
+  }
+
+  .formContent, .formFooter {
+    max-width: 420px;
+    width: 100%;
+  }
+
+  .formFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+
+    .copyRight, .links {
+      padding-bottom: 15px;
+
+      a {
+        font-weight: 600;
+      }
+    }
+
+    .copyRight {
+      color: #7e8299;
+
+      a {
+        color: #3f4254;
+      }
+    }
+
+    .links {
+      a {
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+
+@media(min-width: 992px) {
+  .loginPage {
+    flex-direction: row;
+
+    .asideSection {
+      width: 100%;
+      max-width: 450px;
+      padding-top: 120px;
+
+      .header {
+        h3 {
+          font-size: 24px;
+        }
+
+        a {
+          margin-bottom: 50px;
+        }
+      }
+
+      .asideImage {
+        display: flex;
+        flex: 1 auto;
+        background-size: 430px;
+      }
+    }
+
+    .formSection {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .formContent {
+      padding-top: 15vh;
+    }
+
+    .formFooter {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media(min-width: 1200px) {
+  .loginPage {
+    .asideSection {
+      .header {
+        h3 {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+}
+
+@media(min-width: 1400px) {
+  .loginPage {
+    .asideSection {
+      max-width: 700px;
+
+      .asideImage {
+        background-size: 650px;
+      }
+    }
+  }
+}

@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import RegistrationCard from '../RegistrationCard';
 import Textbox from '../Textbox';
 import SubmitButton from '../SubmitButton';
 import signupFormValidator from '../../validators/signupFormValidator';
 
+import './signupForm.scss';
+
 function SignupForm({ toggleLoginForm }) {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -15,7 +14,7 @@ function SignupForm({ toggleLoginForm }) {
   const [errors, setErrors] = useState({});
 
   const isValid = () => {
-    const { errors, isValid } = signupFormValidator({ firstName, lastName, email, password, passwordConfirmation, companyName });
+    const { errors, isValid } = signupFormValidator({ email, password, passwordConfirmation, companyName });
     if (!isValid) setErrors(errors);
     return isValid;
   }
@@ -31,35 +30,13 @@ function SignupForm({ toggleLoginForm }) {
   }
 
   return (
-    <RegistrationCard>
-      <h3>Create Your Account</h3>
+    <div className='formContent'>
+      <div className='header'>
+        <h3>Create New Account</h3>
+        <p className='formText'>Already have an account? <span className='formLink' onClick={toggleLoginForm}>Login</span></p>
+      </div>
 
       <form className='registrationForm'>
-        <Textbox
-          fieldName='first_name'
-          value={firstName}
-          label='First Name'
-          error={errors.firstName}
-          type='text'
-          id='firstName'
-          onChange={e => setFirstName(e.target.value)}
-          autoComplete='off'
-          autoFocus={true}
-          placeHolder='Your first name'
-        />
-
-        <Textbox
-          fieldName='last_name'
-          value={lastName}
-          label='Last Name'
-          error={errors.lastName}
-          type='text'
-          id='lastName'
-          onChange={e => setLastName(e.target.value)}
-          autoComplete='off'
-          placeHolder='Your last name'
-        />
-
         <Textbox
           fieldName='email'
           value={email}
@@ -69,6 +46,7 @@ function SignupForm({ toggleLoginForm }) {
           id='emailAddress'
           onChange={e => setEmail(e.target.value)}
           autoComplete='off'
+          autoFocus={true}
           placeHolder='Your email address'
         />
 
@@ -114,9 +92,7 @@ function SignupForm({ toggleLoginForm }) {
           handleClick={onSubmit}
         />
       </form>
-
-      <p className='formText'>Already have an account? <span className='formLink' onClick={toggleLoginForm}>Login</span></p>
-    </RegistrationCard>
+    </div>
   )
 }
 

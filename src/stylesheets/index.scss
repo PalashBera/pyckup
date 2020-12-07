@@ -1,28 +1,15 @@
 body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f3f6f9;
+  margin: 0;
+  color: #181c32;
 }
 
 a {
-  color: #333153;
+  color: #1bc5bd;
+  text-decoration: none;
 }
 
-.registrationForm {
-  margin: 50px auto;
-}
-
-.formLink {
-  font-weight: 500;
-  color: #333153;
-  cursor: pointer;
-  font-size: 20px;
-  transition: all 0.5s ease;
-
-  &:hover {
-    color: #565384;
-  }
-}
-
-.formText {
-  user-select: none;
+p, h3 {
+  margin: 0;
 }

@@ -3,14 +3,6 @@ export default function signupFormValidator(data) {
   let validationResult = false;
   let mailFormat = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 
-  if (data.firstName === undefined || data.firstName.trim().length === 0) {
-    errors.firstName = 'This can\'t be blank.';
-  }
-
-  if (data.lastName === undefined || data.lastName.trim().length === 0) {
-    errors.lastName = 'This can\'t be blank.';
-  }
-
   if (data.email === undefined || data.email.trim().length === 0) {
     errors.email = 'This can\'t be blank.';
   } else if (!data.email.match(mailFormat)) {

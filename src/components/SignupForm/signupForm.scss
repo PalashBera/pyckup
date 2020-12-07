@@ -1,0 +1,38 @@
+.formContent {
+  .header {
+    padding-bottom: 39px;
+    padding-top: 15px;
+
+    h3 {
+      font-weight: 600;
+      margin-bottom: 6px;
+      margin-top: 0;
+      font-size: 16px;
+    }
+
+    .formText {
+      color: #b5b5c3;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+    }
+
+    .formLink {
+      font-weight: 600;
+      color: #1bc5bd;
+      cursor: pointer;
+    }
+  }
+}
+
+@media(min-width: 992px) {
+  .formContent .header h3 {
+    font-size: 24px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .formContent .header h3 {
+    font-size: 26px;
+  }
+}

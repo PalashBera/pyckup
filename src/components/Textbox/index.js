@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import './index.scss';
+import './textbox.scss';
 
 function Textbox({ fieldName, value, label, error, type, id, onChange, autoComplete, autoFocus, placeHolder }) {
   return (

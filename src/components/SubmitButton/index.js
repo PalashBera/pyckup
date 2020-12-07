@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import './index.scss';
+import './submitButton.scss';
 
 function SubmitButton({ buttonText, handleClick, disabled }) {
   return (

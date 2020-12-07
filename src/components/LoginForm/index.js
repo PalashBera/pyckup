@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import RegistrationCard from '../RegistrationCard';
 import Textbox from '../Textbox';
 import SubmitButton from '../SubmitButton';
 import loginFormValidator from '../../validators/loginFormValidator';
 import { requestLogin } from '../../actions/loginAction';
 import FormError from '../FormError';
+
+import './loginForm.scss';
 
 function LoginForm({ toggleLoginForm }) {
   const dispatch = useDispatch();
@@ -14,6 +15,10 @@ function LoginForm({ toggleLoginForm }) {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const loginErrors = useSelector(store => store.loginReducer.errors);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, [loginErrors])
 
   const isValid = () => {
     const { errors, isValid } = loginFormValidator({ email, password });
@@ -32,11 +37,14 @@ function LoginForm({ toggleLoginForm }) {
   }
 
   return (
-    <RegistrationCard>
-      <h3>Welcome back</h3>
+    <div className='formContent'>
+      <div className='header'>
+        <h3>Welcome to SupplyPlex</h3>
+        <p className='formText'>New Here? <span className='formLink' onClick={toggleLoginForm}>Create an Account</span></p>
+      </div>
 
       <form className='registrationForm'>
-        <FormError errors={loginErrors} />
+        {loginErrors && <FormError errors={loginErrors} />}
 
         <Textbox
           fieldName='email'
@@ -69,9 +77,7 @@ function LoginForm({ toggleLoginForm }) {
           handleClick={onSubmit}
         />
       </form>
-
-      <p className='formText'>Don't have an account? <span className='formLink' onClick={toggleLoginForm}>Signup</span></p>
-    </RegistrationCard>
+    </div>
   )
 }
 
