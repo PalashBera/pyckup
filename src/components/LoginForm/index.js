@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Textbox from '../Textbox';
 import SubmitButton from '../SubmitButton';
 import loginFormValidator from '../../validators/loginFormValidator';
-import { requestLogin } from '../../actions/loginAction';
+import { requestLogin } from '../../actions/authAction';
 import FormError from '../FormError';
 
 import './loginForm.scss';
@@ -14,7 +14,7 @@ function LoginForm({ toggleLoginForm }) {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  const loginErrors = useSelector(store => store.loginReducer.errors);
+  const loginErrors = useSelector(store => store.authReducer.errors);
 
   useEffect(() => {
     setIsLoading(false);

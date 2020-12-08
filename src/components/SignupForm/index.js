@@ -1,17 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Textbox from '../Textbox';
 import SubmitButton from '../SubmitButton';
 import signupFormValidator from '../../validators/signupFormValidator';
+import { requestSignup } from '../../actions/authAction';
+import FormError from '../FormError';
 
 import './signupForm.scss';
 
 function SignupForm({ toggleLoginForm }) {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const signupErrors = useSelector(store => store.authReducer.errors);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, [signupErrors])
 
   const isValid = () => {
     const { errors, isValid } = signupFormValidator({ email, password, passwordConfirmation, companyName });
@@ -25,7 +34,7 @@ function SignupForm({ toggleLoginForm }) {
     if (isValid()) {
       setErrors({});
       setIsLoading(true);
-      console.log('Form has been submitted successfully.');
+      dispatch(requestSignup({ email, password, passwordConfirmation, companyName }));
     }
   }
 
@@ -37,6 +46,8 @@ function SignupForm({ toggleLoginForm }) {
       </div>
 
       <form className='registrationForm'>
+        {signupErrors && <FormError errors={signupErrors} />}
+
         <Textbox
           fieldName='email'
           value={email}
