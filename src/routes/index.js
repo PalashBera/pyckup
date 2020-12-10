@@ -1,11 +1,14 @@
 import { Route, Switch } from 'react-router-dom';
+import AuthenticatedRoute from './authenticatedRoute';
 
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
+import DashboardPage from '../pages/DashboardPage';
 
 export default (
   <Switch>
     <Route exact path='/' component={HomePage} />
-    <Route exact path='/login' component={LoginPage} />
+    <Route path='/login' component={LoginPage} />
+    <AuthenticatedRoute path='/dashboard' component={DashboardPage} />
   </Switch>
 );

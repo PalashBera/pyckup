@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 import LoginForm from '../../components/LoginForm';
@@ -8,6 +10,12 @@ import './loginPage.scss';
 
 function LoginPage() {
   const [loginForm, setLoginForm] = useState(true);
+  const currentUser = useSelector(state => state.authReducer.currentUser);
+
+  if (currentUser) {
+    return <Redirect to='/dashboard' />;
+  }
+
   const toggleLoginForm = () => setLoginForm(!loginForm);
 
   const FormContent = loginForm ? <LoginForm toggleLoginForm={toggleLoginForm} /> : <SignupForm toggleLoginForm={toggleLoginForm} />
