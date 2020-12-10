@@ -31,3 +31,11 @@ export function requestSignup(signupData) {
       return dispatch(authFailure(error.response.data));
     });
 }
+
+export function requestAuth() {
+  return dispatch => UserApi.auth()
+    .then(({ data }) => {
+      setToken('jwtToken', data.meta.jwtToken);
+      return dispatch(authSuccess(data));
+    })
+}
