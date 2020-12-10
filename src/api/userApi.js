@@ -8,6 +8,10 @@ class userApi {
   async signup(data) {
     return await ajax('/users/signup', { method: 'POST', data });
   }
+
+  async auth() {
+    return await ajax('/users/auth');
+  }
 }
 
 const UserApi = new userApi();
