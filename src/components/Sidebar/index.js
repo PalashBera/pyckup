@@ -4,9 +4,9 @@ import navLinkLogo from '../../images/navLinkLogo.svg';
 
 import './sidebar.scss';
 
-function Sidebar({ show, toggleShow }) {
+function Sidebar({ show, toggleShow, desktopScreen }) {
   return (
-    <div className={classnames('sidebar', { 'showSidebar': show })}>
+    <div className={classnames('sidebar', { 'showSidebar': show }, { 'desktopSidebar': desktopScreen })}>
       <div className='navList'>
         <Link className='navItem' to='/dashboard' onClick={toggleShow}>
           <span className='itemIconContainer'>

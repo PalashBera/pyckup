@@ -15,6 +15,12 @@
     left: 0;
   }
 
+  &.desktopSidebar {
+    left: 0;
+    box-shadow: none;
+    width: 270px;
+  }
+
   .navList {
     display: flex;
     flex-direction: column;

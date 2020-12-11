@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useWindowWidth } from '@react-hook/window-size';
+import classnames from 'classnames';
 import MobileNavbar from '../MobileNavbar';
 import BackDrop from '../BackDrop';
 import Sidebar from '../Sidebar';
@@ -6,6 +8,7 @@ import Sidebar from '../Sidebar';
 import './authLayout.scss';
 
 function AuthLayout({ children }) {
+  const windowWidth = useWindowWidth();
   const [showBackDrop, setShowBackDrop] = useState(false);
 
   const toggleBackDrop = () => setShowBackDrop(!showBackDrop);
@@ -18,11 +21,16 @@ function AuthLayout({ children }) {
     }
   }
 
+  const desktopScreen = windowWidth >= 992;
+
   return (
     <div className='authLayout'>
-      <MobileNavbar toggleBackDrop={toggleBackDrop} />
-      <Sidebar show={showBackDrop} toggleShow={toggleBackDrop} />
-      <main>{children}</main>
+      {!desktopScreen &&
+        <MobileNavbar toggleBackDrop={toggleBackDrop} />
+      }
+
+      <Sidebar show={showBackDrop} toggleShow={toggleBackDrop} desktopScreen={desktopScreen} />
+      <main className={classnames({ 'desktopMain': desktopScreen })}>{children}</main>
 
       <BackDrop showBackDrop={showBackDrop} toggleBackDrop={toggleBackDrop} />
     </div>
