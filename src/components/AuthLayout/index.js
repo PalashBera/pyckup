@@ -1,7 +1,12 @@
+import MobileNavbar from '../MobileNavbar';
+
+import './authLayout.scss';
+
 function AuthLayout({ children }) {
   return (
     <div className='authLayout'>
-      {children}
+      <MobileNavbar />
+      <main>{children}</main>
     </div>
   )
 }
