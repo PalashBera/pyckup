@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import MobileNavbar from '../MobileNavbar';
 import BackDrop from '../BackDrop';
+import Sidebar from '../Sidebar';
 
 import './authLayout.scss';
 
@@ -20,7 +21,9 @@ function AuthLayout({ children }) {
   return (
     <div className='authLayout'>
       <MobileNavbar toggleBackDrop={toggleBackDrop} />
+      <Sidebar show={showBackDrop} toggleShow={toggleBackDrop} />
       <main>{children}</main>
+
       <BackDrop showBackDrop={showBackDrop} toggleBackDrop={toggleBackDrop} />
     </div>
   )

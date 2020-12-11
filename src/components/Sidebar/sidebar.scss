@@ -1,0 +1,45 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -265px;
+  z-index: 11;
+  background-color: #FFFFFF;
+  height: 100vh;
+  width: 220px;
+  padding: 25px 15px;
+  transition: all 0.3s ease;
+  box-shadow: 5px 0px 20px -10px rgba(0,0,0,0.75);
+  overflow-y: auto;
+
+  &.showSidebar {
+    left: 0;
+  }
+
+  .navList {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+  }
+
+  .navItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .itemIconContainer {
+    width: 40px;
+    height: 40px;
+    background-color: #f3f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    margin-right: 12px;
+  }
+
+  .itemTitle {
+    font-size: 14px;
+    color: #3f4254;
+  }
+}
