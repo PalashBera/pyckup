@@ -1,0 +1,26 @@
+.pageHeader {
+  display: flex;
+  align-items: center;
+
+  .header {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    margin: 0 32px 0 0;
+  }
+
+  .totalCount {
+    color: #7e8299;
+    font-weight: 500;
+    font-size: 12px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .pageHeader {
+    .header {
+      font-size: 18px;
+      line-height: 20px;
+    }
+  }
+}
