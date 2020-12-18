@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Textbox from '../Textbox';
-import SubmitButton from '../SubmitButton';
+import Textbox from '../../components/Textbox';
+import SubmitButton from '../../components/SubmitButton';
 import loginFormValidator from '../../validators/loginFormValidator';
 import { requestLogin } from '../../actions/authAction';
-import FormError from '../FormError';
+import FormError from '../../components/FormError';
 
 import './loginForm.scss';
 

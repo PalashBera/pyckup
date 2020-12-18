@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
-import LoginForm from '../../components/LoginForm';
-import SignupForm from '../../components/SignupForm';
+import LoginForm from './loginForm';
+import SignupForm from './signupForm';
 
 import './loginPage.scss';
 
