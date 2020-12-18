@@ -5,6 +5,12 @@ import {
   TableBody,
   TableRow
 } from '../../components/Table';
+import {
+  ActionButtonGroup,
+  EditAction,
+  DeleteAction,
+  DetailsAction
+} from '../../components/ActionButton';
 
 function CategoriesPage() {
   return (
@@ -17,6 +23,7 @@ function CategoriesPage() {
           <th>Name</th>
           <th>Email</th>
           <th>Phone Number</th>
+          <th>Actions</th>
         </TableHeader>
 
         <TableBody>
@@ -25,6 +32,13 @@ function CategoriesPage() {
             <td>Name</td>
             <td>Email</td>
             <td>Phone Number</td>
+            <td>
+              <ActionButtonGroup>
+                <DetailsAction />
+                <EditAction />
+                <DeleteAction />
+              </ActionButtonGroup>
+            </td>
           </TableRow>
 
           <TableRow>
@@ -32,6 +46,13 @@ function CategoriesPage() {
             <td>Name</td>
             <td>Email</td>
             <td>Phone Number</td>
+            <td>
+              <ActionButtonGroup>
+                <DetailsAction />
+                <EditAction />
+                <DeleteAction />
+              </ActionButtonGroup>
+            </td>
           </TableRow>
 
           <TableRow>
@@ -39,6 +60,13 @@ function CategoriesPage() {
             <td>Name</td>
             <td>Email</td>
             <td>Phone Number</td>
+            <td>
+              <ActionButtonGroup>
+                <DetailsAction />
+                <EditAction />
+                <DeleteAction />
+              </ActionButtonGroup>
+            </td>
           </TableRow>
 
           <TableRow>
@@ -46,6 +74,13 @@ function CategoriesPage() {
             <td>Name</td>
             <td>Email</td>
             <td>Phone Number</td>
+            <td>
+              <ActionButtonGroup>
+                <DetailsAction />
+                <EditAction />
+                <DeleteAction />
+              </ActionButtonGroup>
+            </td>
           </TableRow>
         </TableBody>
       </Table>

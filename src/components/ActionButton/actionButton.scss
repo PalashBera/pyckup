@@ -1,0 +1,40 @@
+.actionButtonGroup {
+  display: flex;
+
+  .actionButton {
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.actionButton {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f6f9;
+  border-radius: 4px;
+  transition: background-color .3s ease;
+
+  &:hover {
+    background-color: #1bc5bd;
+
+    svg g [fill] {
+      fill: #FFFFFF;
+    }
+  }
+
+  svg {
+    height: 19px;
+    width: 19px;
+
+    g [fill] {
+      fill: #b5b5c3;
+      transition: fill .3s ease;
+    }
+  }
+}
