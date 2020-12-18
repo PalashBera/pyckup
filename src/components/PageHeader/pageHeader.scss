@@ -1,6 +1,10 @@
 .pageHeader {
-  display: flex;
-  align-items: center;
+  .leftContent {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    height: 35px;
+  }
 
   .header {
     font-size: 15px;
@@ -15,6 +19,19 @@
     font-size: 12px;
   }
 }
+
+@media(min-width: 992px) {
+  .pageHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .leftContent {
+      margin-bottom: 0;
+    }
+  }
+}
+
 
 @media(min-width: 1200px) {
   .pageHeader {

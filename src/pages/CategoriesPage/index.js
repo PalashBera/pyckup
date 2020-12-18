@@ -1,21 +1,16 @@
 import PageHeader from '../../components/PageHeader';
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow
-} from '../../components/Table';
-import {
-  ActionButtonGroup,
-  EditAction,
-  DeleteAction,
-  DetailsAction
-} from '../../components/ActionButton';
+import { Table, TableHeader, TableBody, TableRow } from '../../components/Table';
+import { ActionButtonGroup, EditAction, DeleteAction, DetailsAction } from '../../components/ActionButton';
 
 function CategoriesPage() {
   return (
     <>
-      <PageHeader title='Categories' totalCount={1000} />
+      <PageHeader
+        title='Categories'
+        totalCount={1000}
+        buttonTitle='New Category'
+        buttonLink='/categories/new'
+      />
 
       <Table>
         <TableHeader>
