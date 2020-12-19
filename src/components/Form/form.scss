@@ -4,12 +4,20 @@
   margin-top: 20px;
 
   .formHeader {
-    padding: 10px 30px;
+    padding: 20px 30px;
     border-bottom: 1px solid #ebedf3;
   }
 
   .formTitle {
     font-size: 16px;
     font-weight: 600;
+  }
+
+  .formBody {
+    padding: 30px;
+  }
+
+  .form {
+    max-width: 450px;
   }
 }

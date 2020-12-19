@@ -1,15 +1,13 @@
 import PageHeader from '../../components/PageHeader';
-import Form from '../../components/Form';
+import CategoryForm from './categoryForm';
 
 function NewCategoryPage() {
   return (
     <>
       <PageHeader title='New Category' />
-      <Form title='Create New Category' />
+      <CategoryForm />
     </>
   )
 }
-
-
 
 export default NewCategoryPage;

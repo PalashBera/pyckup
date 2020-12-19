@@ -10,7 +10,7 @@ function Form({ title, children }) {
       </div>
 
       <div className='formBody'>
-        <form>
+        <form className='form'>
           {children}
         </form>
       </div>
