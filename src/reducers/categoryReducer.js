@@ -1,5 +1,6 @@
 import {
-  REQUEST_CATEGORIES_SUCCESS
+  REQUEST_CATEGORIES_SUCCESS,
+  REQUEST_CATEGORIES_FAILURE
 } from '../constants/actionTypes';
 
 const categoryReducer = (state = { categories: [] }, action) => {
@@ -9,6 +10,11 @@ const categoryReducer = (state = { categories: [] }, action) => {
         ...state,
         categories: action.payload.data
       }
+    case REQUEST_CATEGORIES_FAILURE:
+      return {
+        ...state,
+        errors: action.payload.errors
+      };
     default:
       return state
   }
