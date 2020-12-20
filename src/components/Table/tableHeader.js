@@ -1,9 +1,7 @@
 function TableHeader({ children }) {
   return (
     <thead>
-      <tr>
-        {children}
-      </tr>
+      {children}
     </thead>
   )
 }

@@ -1,3 +1,6 @@
 // authentication
 export const REQUEST_AUTH_SUCCESS  = 'REQUEST_AUTH_SUCCESS';
 export const REQUEST_AUTH_FAILURE = 'REQUEST_AUTH_FAILURE';
+
+// categories
+export const REQUEST_CATEGORIES_SUCCESS = 'REQUEST_CATEGORIES_SUCCESS';
