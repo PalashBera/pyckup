@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import Form from '../../components/Form';
 import Textbox from '../../components/Textbox';
 import Selectbox from '../../components/Selectbox';
@@ -11,10 +10,10 @@ import FormError from '../../components/FormError';
 import categoryFormValidator from '../../validators/categoryFormValidator';
 import { requestCategoryCreate } from '../../actions/categoryAction';
 
-function CategoryForm({ object }) {
+function CategoryForm({ category }) {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [active, setActive] = useState('');
+  const [name, setName] = useState(category ? category.name : '');
+  const [active, setActive] = useState(category ? category.active.toString() : '');
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const categoryErrors = useSelector(store => store.categoryReducer.errors);
@@ -40,7 +39,7 @@ function CategoryForm({ object }) {
   }
 
   return (
-    <Form title='Create New Category'>
+    <Form title={`${category ? 'Edit' : 'Create New'} Category`}>
       {categoryErrors && <FormError errors={categoryErrors} />}
 
       <Textbox
@@ -74,7 +73,7 @@ function CategoryForm({ object }) {
         />
 
         <SubmitButton
-          buttonText={object ? 'Update' : 'Create' }
+          buttonText={category ? 'Update' : 'Create' }
           disabled={isLoading}
           handleClick={onSubmit}
         />

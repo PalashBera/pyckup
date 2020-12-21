@@ -1,29 +1,41 @@
 import { createAction } from 'redux-actions';
 import { push } from 'connected-react-router';
 import {
-  REQUEST_CATEGORIES_SUCCESS,
-  REQUEST_CATEGORIES_FAILURE
+  FETCH_CATEGORIES_SUCCESS,
+  CREATE_CATEGORY_FAILURE,
+  FETCH_CATEGORY_SUCCESS
 } from '../constants/actionTypes';
 
 import CategoryApi from '../api/categoryApi';
 
-const categoriesSuccess = createAction(REQUEST_CATEGORIES_SUCCESS);
-const categoriesFailure = createAction(REQUEST_CATEGORIES_FAILURE);
+const fetchCategoriesSuccess = createAction(FETCH_CATEGORIES_SUCCESS);
+const createCategoryFailure = createAction(CREATE_CATEGORY_FAILURE);
+const fetchCategorySuccess = createAction(FETCH_CATEGORY_SUCCESS);
 
-export function requestCategories() {
+export function fetchCategories() {
   return dispatch => CategoryApi.index()
     .then(({ data }) => {
-      return dispatch(categoriesSuccess(data));
+      return dispatch(fetchCategoriesSuccess(data));
     });
 }
 
 export function requestCategoryCreate(data) {
   return dispatch => CategoryApi.create(data)
     .then(({ data }) => {
-      dispatch(categoriesFailure({}));
+      dispatch(createCategoryFailure({}));
       return dispatch(push('/categories'));
     })
     .catch(error => {
-      return dispatch(categoriesFailure(error.response.data));
+      return dispatch(createCategoryFailure(error.response.data));
+    });
+}
+
+export function fetchCategory(id) {
+  return dispatch => CategoryApi.show(id)
+    .then(({ data }) => {
+      return dispatch(fetchCategorySuccess(data));
+    })
+    .catch(error => {
+      return dispatch(push('/categories'));
     });
 }

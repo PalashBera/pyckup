@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import PageHeader from '../../components/PageHeader';
 import { Table, TableHeader, TableBody, TableRow } from '../../components/Table';
 import { ActionButtonGroup, EditAction, DeleteAction } from '../../components/ActionButton';
-import { requestCategories } from '../../actions/categoryAction';
+import { fetchCategories } from '../../actions/categoryAction';
 
 function CategoriesPage() {
   const dispatch = useDispatch();
   const categories = useSelector(store => store.categoryReducer.categories);
 
   useEffect(() => {
-    dispatch(requestCategories());
+    dispatch(fetchCategories());
   }, [])
 
   const tableRows = categories.map((el, index) => {
@@ -21,7 +21,7 @@ function CategoriesPage() {
         <td>{el.active ? 'Active' : 'Archived'}</td>
         <td>
           <ActionButtonGroup>
-            <EditAction />
+            <EditAction url={`/categories/${el._id}/edit`} />
             <DeleteAction />
           </ActionButtonGroup>
         </td>

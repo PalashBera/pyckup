@@ -5,6 +5,10 @@ class categoryApi {
     return await ajax('/categories');
   }
 
+  async show(id) {
+    return await ajax(`/categories/${id}`);
+  }
+
   async create(data) {
     return await ajax('/categories', { method: 'POST', data });
   }
